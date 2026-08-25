@@ -1,0 +1,5 @@
+.build/
+MouseScrollSwitcher.app/
+release/
+tests
+.DS_Store
