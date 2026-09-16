@@ -5,7 +5,7 @@
 <h1 align="center">Mouse Scroll Switcher</h1>
 
 <p align="center">
-  Tired of opening System Settings, finding Trackpad, clicking Scroll &amp; Zoom, and flipping Natural scrolling every time you switch between mouse and trackpad? Thanks, Apple—nothing says “it just works” like doing it yourself. Install this for a reminder when the setting needs changing and a shortcut straight to the toggle.
+  Switch from mouse to trackpad. Dig through Settings. Repeat. Very “Natural,” Apple. Install this and skip the scavenger hunt.
 </p>
 
 ![How Mouse Scroll Switcher works](assets/overview.svg)
