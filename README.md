@@ -14,7 +14,7 @@
 
 Mouse Scroll Switcher checks the current devices and Natural scrolling preference at launch, when a mouse connects or disconnects, after system or screen wake, when the display configuration changes, and when your user session becomes active again.
 
-Automatic events arriving close together share one check a second after the last event, allowing devices to settle after waking or undocking. The menu-bar mouse icon shows that the app is running. Its menu shows the last check time and result, and offers **Check Now**, **Open Trackpad Settings**, and **Quit**. **Check Now** runs immediately.
+Automatic events arriving close together share one check a second after the last event, allowing devices to settle after waking or undocking. The menu-bar up/down arrow icon shows that the app is running. Its menu shows the last check time and result, and offers **Check Now**, **Open Trackpad Settings**, and **Quit**. **Check Now** runs immediately.
 
 | Current devices | Expected setting | Result when matched |
 | --- | --- | --- |

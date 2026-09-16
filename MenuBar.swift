@@ -15,7 +15,7 @@ final class MenuBar: NSObject {
         self.openSettings = openSettings
         super.init()
 
-        if let image = NSImage(systemSymbolName: "computermouse", accessibilityDescription: "Mouse Scroll Switcher") {
+        if let image = NSImage(systemSymbolName: "arrow.up.arrow.down", accessibilityDescription: "Scroll direction") {
             image.isTemplate = true
             image.size = NSSize(width: 18, height: 18)
             item.button?.image = image
