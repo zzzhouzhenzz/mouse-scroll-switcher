@@ -5,7 +5,7 @@
 <h1 align="center">Mouse Scroll Switcher</h1>
 
 <p align="center">
-  A tiny macOS menu-bar app that reminds you to adjust Natural scrolling when you switch between a trackpad and a non-Apple mouse.
+  Tired of opening System Settings, finding Trackpad, clicking Scroll &amp; Zoom, and flipping Natural scrolling every time you switch between mouse and trackpad? Thanks, Apple—nothing says “it just works” like doing it yourself. Install this for a reminder when the setting needs changing and a shortcut straight to the toggle.
 </p>
 
 ![How Mouse Scroll Switcher works](assets/overview.svg)
