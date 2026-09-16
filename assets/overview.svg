@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">How Mouse Scroll Switcher works</title>
-  <desc id="desc">A mouse connection change triggers a fresh check of connected mice and the Natural scrolling setting. Matching states remain quiet and mismatches show a notification with Trackpad Settings and Not Now actions.</desc>
+  <desc id="desc">Launch, mouse connection changes, wake, display changes, and session activation trigger a fresh check of connected mice and the Natural scrolling setting. Check Now runs the same check immediately. Matching states remain quiet and mismatches show a notification with Trackpad Settings and Not Now actions. Mouse in the decision table means a non-Apple mouse.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#fbfaf7"/>
@@ -15,7 +15,7 @@
   </defs>
   <rect width="1600" height="900" rx="44" fill="url(#bg)"/>
   <text x="92" y="100" class="title ink">One fresh check. No scroll interception.</text>
-  <text x="94" y="140" class="small muted">On launch, connect, and disconnect</text>
+  <text x="94" y="140" class="small muted">On launch, device changes, wake, display changes, and session activation</text>
 
   <g filter="url(#shadow)">
     <rect x="90" y="205" width="310" height="350" rx="32" class="card"/>
@@ -29,8 +29,8 @@
     <rect x="53" y="30" width="24" height="48" rx="12" fill="#1481ee"/>
   </g>
   <circle cx="340" cy="262" r="12" fill="#29a36a"/>
-  <text x="245" y="476" text-anchor="middle" class="label ink">Mouse state changed</text>
-  <text x="245" y="510" text-anchor="middle" class="small muted">Public IOHIDManager callback</text>
+  <text x="245" y="476" text-anchor="middle" class="label ink">Check triggered</text>
+  <text x="245" y="510" text-anchor="middle" class="small muted">Device or workspace event</text>
 
   <path d="M410 380h185" class="line"/>
   <path d="m582 365 18 15-18 15" class="line"/>
@@ -65,7 +65,7 @@
 
   <g transform="translate(90 635)">
     <rect width="1420" height="170" rx="28" fill="#25313d"/>
-    <text x="38" y="48" class="label" fill="#fff">Decision table</text>
+    <text x="38" y="48" class="label" fill="#fff">Decision table · Mouse means a non-Apple mouse</text>
     <g transform="translate(38 75)">
       <circle cx="11" cy="11" r="11" fill="#29a36a"/><text x="33" y="18" class="small" fill="#fff">Mouse present + Natural off</text>
       <circle cx="370" cy="11" r="11" fill="#1479e8"/><text x="392" y="18" class="small" fill="#fff">Mouse present + Natural on</text>

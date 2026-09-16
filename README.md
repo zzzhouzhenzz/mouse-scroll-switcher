@@ -1,37 +1,58 @@
 <p align="center">
-  <img src="assets/app-icon.png" width="144" alt="Mouse Scroll Switcher icon">
+  <img src="assets/app-icon.png" width="144" alt="Amethyst up/down arrows on an iridescent pearl background">
 </p>
 
 <h1 align="center">Mouse Scroll Switcher</h1>
 
 <p align="center">
-  A tiny macOS reminder that keeps Natural scrolling sensible when you switch between a trackpad and a non-Apple mouse.
+  A tiny macOS menu-bar app that reminds you to adjust Natural scrolling when you switch between a trackpad and a non-Apple mouse.
 </p>
 
 ![How Mouse Scroll Switcher works](assets/overview.svg)
 
 ## What it does
 
-Mouse Scroll Switcher checks the current devices and Natural scrolling preference at launch, when a mouse connects or disconnects, after system or screen wake, when the display configuration changes, and when your user session becomes active again.
-
-Automatic events arriving close together share one check a second after the last event, allowing devices to settle after waking or undocking. The menu-bar up/down arrow icon shows that the app is running. Its menu shows the last check time and result, and offers **Check Now**, **Open Trackpad Settings**, and **Quit**. **Check Now** runs immediately.
+Mouse Scroll Switcher compares your connected devices with the current Natural scrolling preference. It stays quiet when they match and reminds you when they do not.
 
 | Current devices | Expected setting | Result when matched |
 | --- | --- | --- |
 | A non-Apple mouse is connected | Natural scrolling off | Quiet |
 | No non-Apple mouse is connected | Natural scrolling on | Quiet |
 
-When they do not match, a persistent notification offers two choices: **Open Trackpad Settings** or **Not Now**. The first opens Trackpad → Scroll & Zoom directly.
+When they do not match, a notification offers two choices: **Open Trackpad Settings** or **Not Now**. The first opens Trackpad → Scroll & Zoom directly. You change the setting yourself; the app never changes it for you.
 
 It does not intercept scrolling, install an event tap, require Accessibility permission, poll in the background, or silently modify a system setting.
 
+## When it checks
+
+- At launch.
+- When a mouse connects or disconnects.
+- After the Mac or its screen wakes.
+- When the display configuration changes, including connecting or disconnecting a monitor.
+- When your user session becomes active again.
+- Immediately when you choose **Check Now** from the menu bar.
+
+Automatic events arriving close together share one check a second after the last event, allowing devices to settle after waking or undocking. Each check reads the current device list and preference again; there is no polling loop or stored device history.
+
+## How to tell it is running
+
+Look for the **↑↓** icon in the menu bar. Open it to see:
+
+- The latest result: settings match, settings need attention, or the preference could not be read.
+- The last check time.
+- **Check Now**, **Open Trackpad Settings**, and **Quit Mouse Scroll Switcher**.
+
+The icon indicates that the app is running, not which scrolling direction is selected. This is a menu-bar app, so it does not open a main window or appear in the Dock.
+
 ## Install
 
-Download `MouseScrollSwitcher-v1.0.0.zip` from the latest release, unzip it, and move the app to Applications. Because v1 is ad-hoc signed rather than notarized, macOS may require **Control-click → Open** on first launch.
+The [v1.0.0 download](https://github.com/zzzhouzhenzz/mouse-scroll-switcher/releases/tag/v1.0.0) predates the menu-bar status, wake/display checks, and pearl icon shown here. [Build from source](#build-from-source) for the current version described in this README.
+
+To use the published v1.0.0 build, download `MouseScrollSwitcher-v1.0.0.zip`, unzip it, and move the app to Applications. The app is ad-hoc signed rather than notarized, so macOS may require **Control-click → Open** on first launch.
 
 Allow notifications when prompted. For notifications that remain visible until acted on, macOS should use **Alerts** for Mouse Scroll Switcher in System Settings → Notifications.
 
-Add the app to System Settings → General → Login Items if you want it to run after login.
+To run at login, add `/Applications/MouseScrollSwitcher.app` under **System Settings → General → Login Items → Open at Login**. This is a standard macOS login item, not a separate background service.
 
 ## Build from source
 
