@@ -12,7 +12,9 @@
 
 ## What it does
 
-Mouse Scroll Switcher checks the current devices and Natural scrolling preference when it launches and whenever a mouse connects or disconnects.
+Mouse Scroll Switcher checks the current devices and Natural scrolling preference at launch, when a mouse connects or disconnects, after system or screen wake, when the display configuration changes, and when your user session becomes active again.
+
+Automatic events arriving close together share one check a second after the last event, allowing devices to settle after waking or undocking. The menu-bar mouse icon shows that the app is running. Its menu shows the last check time and result, and offers **Check Now**, **Open Trackpad Settings**, and **Quit**. **Check Now** runs immediately.
 
 | Current devices | Expected setting | Result when matched |
 | --- | --- | --- |
@@ -43,13 +45,18 @@ open MouseScrollSwitcher.app
 
 The project also includes a Swift package manifest for editor indexing.
 
+Tests cover the decision table and post wake/display/session notifications inside
+the test process to verify settling and manual checks. They require a macOS user
+session and do not change system preferences or display notifications.
+
 ## How small is it?
 
-The production app has three Swift files:
+The production app has four Swift files:
 
 - `main.swift` wires up the accessory app.
-- `Core.swift` listens for public HID connection changes and makes the stateless decision.
+- `Core.swift` listens for HID, wake, display, and session events and makes the stateless decision.
 - `Notification.swift` presents the notification and opens System Settings.
+- `MenuBar.swift` presents the running status, last check, and menu actions.
 
 The HID matching API is public. Reading `com.apple.swipescrolldirection` and opening an `x-apple.systempreferences:` deep link rely on undocumented macOS behavior and may need adjustment on a future release.
 

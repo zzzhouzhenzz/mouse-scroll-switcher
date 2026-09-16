@@ -39,7 +39,7 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate {
 
     func show(mousePresent: Bool) {
         let content = UNMutableNotificationContent()
-        content.title = mousePresent ? "Mouse connected" : "Mouse disconnected"
+        content.title = "Scrolling settings need attention"
         content.body = "Open Trackpad settings to turn Natural scrolling \(mousePresent ? "off" : "on")?"
         content.categoryIdentifier = categoryID
         center.add(UNNotificationRequest(
@@ -48,13 +48,17 @@ final class NotificationService: NSObject, UNUserNotificationCenterDelegate {
             trigger: nil))
     }
 
+    func openSettings() {
+        NSWorkspace.shared.open(trackpadSettingsURL)
+    }
+
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         didReceive response: UNNotificationResponse,
         withCompletionHandler done: @escaping () -> Void
     ) {
         if response.actionIdentifier == actionID {
-            NSWorkspace.shared.open(trackpadSettingsURL)
+            openSettings()
         }
         done()
     }

@@ -6,7 +6,7 @@ SWIFTFLAGS := -warnings-as-errors \
 APP := MouseScrollSwitcher.app
 BINARY := $(APP)/Contents/MacOS/MouseScrollSwitcher
 ICON := assets/AppIcon.icns
-SOURCES := main.swift Notification.swift Core.swift
+SOURCES := main.swift Notification.swift Core.swift MenuBar.swift
 
 .PHONY: all test clean
 
